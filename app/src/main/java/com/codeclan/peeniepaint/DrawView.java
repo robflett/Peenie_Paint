@@ -13,6 +13,9 @@ import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class DrawView extends View {
 
 //    public int width;
@@ -86,6 +89,9 @@ public class DrawView extends View {
 //        iterate through paths to draw each line for each finger
         canvas.drawBitmap(mBitmap, 0, 0, cPaint);
         for (int i=0; i<paths.size(); i++) {
+//            iterate through colours and choose a random colour for the brush -- Shouldn't this work?
+            Collections.shuffle(Arrays.asList(colours));
+//
             mPaint.setColor(colours[i % 9]);
             canvas.drawPath(paths.valueAt(i), mPaint);
         }
