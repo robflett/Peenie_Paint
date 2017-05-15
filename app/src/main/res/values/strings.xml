@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Peenie Paint</string>
+    <string name="title_activity_draw">DrawActivity</string>
+    <string name="title_activity_tune">TuneActivity</string>
+</resources>
