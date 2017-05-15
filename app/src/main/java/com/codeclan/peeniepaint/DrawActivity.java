@@ -16,7 +16,7 @@ public class DrawActivity extends AppCompatActivity{
         setContentView(new DrawView(this));
     }
 
-    public void clearCanvas(View v){
-        drawView.clearCanvas();
-    }
+//    public void clearCanvas(View v){
+//        drawView.clearCanvas();
+//    }
 }
