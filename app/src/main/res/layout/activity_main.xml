@@ -12,7 +12,7 @@
         android:layout_height="144dp"
         android:layout_gravity="center_vertical|center_horizontal"
         android:onClick="onTuneButtonClicked"
-        android:text="Draw Something!"
+        android:text="Play Something!"
         app:layout_anchor="@+id/include3"
         app:layout_anchorGravity="center_vertical|center_horizontal" />
 
@@ -22,7 +22,7 @@
         android:layout_height="107dp"
         android:layout_gravity="top|center_horizontal"
         android:onClick="onDrawButtonClicked"
-        android:text="Play Something!"
+        android:text="Draw Something!"
         app:layout_anchor="@+id/include3"
         app:layout_anchorGravity="bottom|center_horizontal" />
 
