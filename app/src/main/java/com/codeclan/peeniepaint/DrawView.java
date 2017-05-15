@@ -29,8 +29,8 @@ public class DrawView extends View {
     //    the below compares floats - if the TOLERANCE is below the given amount (in pixels), they are considered equal
     private static final float TOLERANCE = 5;
 
-    public DrawView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public DrawView(Context context) {
+        super(context);
 //        below we set 'this' to equal the above context
         this.context = context;
 
@@ -43,7 +43,7 @@ public class DrawView extends View {
 
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeJoin(Paint.Join.ROUND);
-        mPaint.setStrokeWidth(5f);
+        mPaint.setStrokeWidth(20f);
 
     }
 
@@ -62,6 +62,7 @@ public class DrawView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        canvas.drawColor(Color.BLACK);
         canvas.drawPath(mPath, mPaint);
     }
 

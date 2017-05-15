@@ -39,8 +39,8 @@ public class TuneView extends View {
     private static final int SIZE = 60;
 
 
-    public TuneView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public TuneView(Context context) {
+        super(context);
 
         this.context = context;
 
@@ -133,4 +133,4 @@ public class TuneView extends View {
 }
 
 
-}
+
