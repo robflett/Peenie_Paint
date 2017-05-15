@@ -9,29 +9,33 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
 
 public class DrawView extends View {
 
-    public int width;
-    public int height;
+//    public int width;
+//    public int height;
 
     private Bitmap mBitmap;
     private Canvas mCanvas;
     private Path mPath;
-    private Paint mPaint;
+    private Paint mPaint, cPaint;
 
-    private float mX, mY;
+    private SparseArray<Path> paths;
+
+//    private float mX, mY;
 
     Context context;
 
-    //    the below compares floats - if the TOLERANCE is below the given amount (in pixels), they are considered equal
-    private static final float TOLERANCE = 5;
 
     public DrawView(Context context) {
         super(context);
 //        below we set 'this' to equal the above context
+
+        setupDrawing();
+
         this.context = context;
 
         mPath = new Path();
@@ -47,6 +51,20 @@ public class DrawView extends View {
 
     }
 
+    private void setupDrawing() {
+        paths = new SparseArray<>();
+
+        mPaint = new Paint();
+        mPaint.setColor(Color.RED);
+        mPaint.setAntiAlias(true);
+        mPaint.setStrokeWidth(20);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeJoin(Paint.Join.ROUND);
+        mPaint.setStrokeCap(Paint.Cap.ROUND);
+
+        cPaint = new Paint(Paint.DITHER_FLAG);
+    }
+
 
 //    below - setting up Bitmap (the drawing surface)
 
@@ -60,61 +78,55 @@ public class DrawView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-
         canvas.drawColor(Color.BLACK);
-        canvas.drawPath(mPath, mPaint);
-    }
-
-    private void firstTouch(float x, float y){
-        mPath.moveTo(x, y);
-        mX = x;
-        mY = y;
-    }
-
-    //    moving method - that includes a catch that resets the value of x and y if they exceed TOLERANCE (set above)
-    private void moveTouch(float x, float y){
-        float dx = Math.abs(x - mX);
-        float dy = Math.abs(y - mY);
-        if(dx >= TOLERANCE || dy >= TOLERANCE){
-            mPath.quadTo(mX, mY, (x + mX) / 2, (y + mY) /2);
-            mX = x;
-            mY = y;
+//        iterate through paths to draw each line for each finger
+        canvas.drawBitmap(mBitmap, 0, 0, cPaint);
+        for (int i=0; i<paths.size(); i++) {
+            canvas.drawPath(paths.valueAt(i), mPaint);
         }
+
+//        canvas.drawPath(mPath, mPaint);
     }
 
-    public void clearCanvas(){
-        mPath.reset();
-        invalidate();
-    }
 
-    private void upTouch(){
-        mPath.lineTo(mX, mY);
-    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        float x = event.getX();
-        float y = event.getY();
+        int index = event.getActionIndex();
+        int id = event.getPointerId(index);
 
-        switch (event.getAction()){
+        Path path;
+        switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
-                firstTouch(x, y);
-                invalidate();
+            case MotionEvent.ACTION_POINTER_DOWN:
+                path = new Path();
+                path.moveTo(event.getX(index), event.getY(index));
+                paths.put(id, path);
                 break;
+
             case MotionEvent.ACTION_MOVE:
-                moveTouch(x, y);
-                invalidate();
+                for (int i=0; i<event.getPointerCount(); i++) {
+                    id = event.getPointerId(i);
+                    path = paths.get(id);
+                    if (path != null) path.lineTo(event.getX(i), event.getY(i));
+                }
                 break;
+
             case MotionEvent.ACTION_UP:
-                upTouch();
-                invalidate();
+            case MotionEvent.ACTION_POINTER_UP:
+                path = paths.get(id);
+                if (path != null) {
+                    mCanvas.drawPath(path, mPaint);
+                    paths.remove(id);
+                }
                 break;
-
+            default:
+                return false;
         }
-
+        invalidate();
         return true;
-
     }
+
+
 
 }
