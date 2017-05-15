@@ -27,6 +27,10 @@ public class DrawView extends View {
 
 //    private float mX, mY;
 
+    private int[] colours = {Color.BLUE, Color.GREEN, Color.MAGENTA,
+            Color.BLACK, Color.CYAN, Color.GRAY, Color.RED, Color.DKGRAY,
+            Color.LTGRAY, Color.YELLOW};
+
     Context context;
 
 
@@ -82,6 +86,7 @@ public class DrawView extends View {
 //        iterate through paths to draw each line for each finger
         canvas.drawBitmap(mBitmap, 0, 0, cPaint);
         for (int i=0; i<paths.size(); i++) {
+            mPaint.setColor(colours[i % 9]);
             canvas.drawPath(paths.valueAt(i), mPaint);
         }
 
