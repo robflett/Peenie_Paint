@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     Button drawButton;
     Button tuneButton;
 
+    MediaPlayer mp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,10 +22,22 @@ public class MainActivity extends AppCompatActivity {
         drawButton = (Button)findViewById(R.id.draw);
         tuneButton = (Button)findViewById(R.id.tune);
 
-        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.heartandsoul);
-        mp.setLooping(true);
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.heartandsoul);
+
+//        mp.setLooping(true);
         mp.start();
+
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mp.setLooping(false);
+        mp.stop();
+        mp.release();
+    }
+
+
 
     public void onDrawButtonClicked(View view) {
         Intent intent = new Intent(this, DrawActivity.class);
@@ -34,5 +48,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TuneActivity.class);
         startActivity(intent);
     }
+
+
 
 }

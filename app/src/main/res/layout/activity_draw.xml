@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.codeclan.peeniepaint.DrawActivity">
 
-    <com.codeclan.peeniepaint.DrawView
+    <com.codeclan.peeniepaint.DrawViewpaint.DrawView
         android:layout_width="match_parent"
         android:id="@+id/canvas"
         android:layout_alignParentTop="true"
@@ -22,6 +22,7 @@
         tools:layout_editor_absoluteX="147dp"
         tools:layout_editor_absoluteY="460dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="107dp" />
 
 </RelativeLayout>

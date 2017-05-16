@@ -9,18 +9,23 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.util.AttributeSet;
+
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
 
-import java.util.Arrays;
-import java.util.Collections;
+
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import java.util.Random;
+
 
 public class DrawView extends View {
 
-//    public int width;
-//    public int height;
+
 
     private Bitmap mBitmap;
     private Canvas mCanvas;
@@ -32,8 +37,13 @@ public class DrawView extends View {
 //    private float mX, mY;
 
     private int[] colours = {Color.BLUE, Color.GREEN, Color.MAGENTA,
-            Color.BLACK, Color.CYAN, Color.GRAY, Color.RED, Color.DKGRAY,
+            Color.CYAN, Color.GRAY, Color.RED, Color.DKGRAY,
             Color.LTGRAY, Color.YELLOW};
+
+//    arraylist of ints
+    ArrayList randColour = new ArrayList<Integer>();
+
+//    ArrayList motion = new ArrayList<MotionEvent>();
 
     Context context;
 
@@ -63,18 +73,18 @@ public class DrawView extends View {
         paths = new SparseArray<>();
 
         mPaint = new Paint();
-        mPaint.setColor(Color.RED);
+//        mPaint.setColor(Color.RED);
         mPaint.setAntiAlias(true);
-        mPaint.setStrokeWidth(20);
+        mPaint.setStrokeWidth(30);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
 
 //
 
+
         cPaint = new Paint(Paint.DITHER_FLAG);
     }
-
 
 //    below - setting up Bitmap (the drawing surface)
 
@@ -86,23 +96,26 @@ public class DrawView extends View {
         mCanvas = new Canvas(mBitmap);
     }
 
+
+
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawColor(Color.BLACK);
 //        iterate through paths to draw each line for each finger
+
         canvas.drawBitmap(mBitmap, 0, 0, cPaint);
         for (int i=0; i<paths.size(); i++) {
-//            iterate through colours and choose a random colour for the brush -- Shouldn't this work?
-            Collections.shuffle(Arrays.asList(colours));
-//
-//            Add Blur effect to the line
-            mPaint.setMaskFilter(new BlurMaskFilter(8, BlurMaskFilter.Blur.NORMAL));
 
-            mPaint.setColor(colours[i % 9]);
+//            Add Blur effect to the line
+
+            mPaint.setMaskFilter(new BlurMaskFilter(8, BlurMaskFilter.Blur.SOLID));
+
+            if (randColour.get(i) != null) {
+                mPaint.setColor((int) randColour.get(i));
+            }
+
             canvas.drawPath(paths.valueAt(i), mPaint);
         }
-
-//        canvas.drawPath(mPath, mPaint);
     }
 
 
@@ -115,10 +128,20 @@ public class DrawView extends View {
         Path path;
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
+
+
             case MotionEvent.ACTION_POINTER_DOWN:
+
+                Random ran = new Random();
+                int x = ran.nextInt(colours.length);
+                randColour.add(colours[x]);
+
                 path = new Path();
                 path.moveTo(event.getX(index), event.getY(index));
                 paths.put(id, path);
+
+
+                Log.d(String.valueOf(randColour.size()), String.valueOf(paths.size()));
                 break;
 
             case MotionEvent.ACTION_MOVE:
@@ -130,11 +153,14 @@ public class DrawView extends View {
                 break;
 
             case MotionEvent.ACTION_UP:
+
+
             case MotionEvent.ACTION_POINTER_UP:
                 path = paths.get(id);
                 if (path != null) {
                     mCanvas.drawPath(path, mPaint);
                     paths.remove(id);
+                    randColour.remove(0);
                 }
                 break;
             default:
@@ -142,6 +168,11 @@ public class DrawView extends View {
         }
         invalidate();
         return true;
+    }
+
+    public void clearCanvas(){
+        mPath.reset();
+        invalidate();
     }
 
 
