@@ -6,11 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     Button drawButton;
     Button tuneButton;
+
+    private static final int TIME_INTERVAL = 2000;
+    private long mBackPressed;
 
     MediaPlayer mp;
 
@@ -47,6 +51,19 @@ public class MainActivity extends AppCompatActivity {
     public void onTuneButtonClicked(View view) {
         Intent intent = new Intent(this, TuneActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis())
+        {
+            super.onBackPressed();
+            return;
+        }
+        else { Toast.makeText(getBaseContext(), "Tap BACK button to exit", Toast.LENGTH_SHORT).show(); }
+
+        mBackPressed = System.currentTimeMillis();
     }
 
 
