@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
+import android.media.MediaPlayer;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.MotionEvent;
@@ -67,8 +68,14 @@ public class TuneView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+
+
 //        SET BACKGROUND COLOR TO BLACK
         canvas.drawColor(Color.BLACK);
+
+//        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.soundFileName);
+//        mp.start();
+
         canvas.drawPath(mPath, mPaint);
 
         for (int size = mActivePointers.size(), i = 0; i < size; i++) {

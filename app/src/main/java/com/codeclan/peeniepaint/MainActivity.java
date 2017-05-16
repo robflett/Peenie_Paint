@@ -1,6 +1,7 @@
 package com.codeclan.peeniepaint;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
         drawButton = (Button)findViewById(R.id.draw);
         tuneButton = (Button)findViewById(R.id.tune);
+
+        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.heartandsoul);
+        mp.setLooping(true);
+        mp.start();
     }
 
     public void onDrawButtonClicked(View view) {

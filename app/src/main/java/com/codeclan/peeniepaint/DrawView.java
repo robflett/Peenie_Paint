@@ -4,6 +4,7 @@ package com.codeclan.peeniepaint;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -69,6 +70,8 @@ public class DrawView extends View {
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
 
+//
+
         cPaint = new Paint(Paint.DITHER_FLAG);
     }
 
@@ -92,6 +95,9 @@ public class DrawView extends View {
 //            iterate through colours and choose a random colour for the brush -- Shouldn't this work?
             Collections.shuffle(Arrays.asList(colours));
 //
+//            Add Blur effect to the line
+            mPaint.setMaskFilter(new BlurMaskFilter(8, BlurMaskFilter.Blur.NORMAL));
+
             mPaint.setColor(colours[i % 9]);
             canvas.drawPath(paths.valueAt(i), mPaint);
         }
