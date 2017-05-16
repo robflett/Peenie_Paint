@@ -37,7 +37,7 @@ public class DrawView extends View {
 //    private float mX, mY;
 
     private int[] colours = {Color.BLUE, Color.GREEN, Color.MAGENTA,
-            Color.CYAN, Color.GRAY, Color.RED, Color.DKGRAY,
+            Color.CYAN, Color.RED, Color.WHITE,
             Color.LTGRAY, Color.YELLOW};
 
 //    arraylist of ints
@@ -73,14 +73,12 @@ public class DrawView extends View {
         paths = new SparseArray<>();
 
         mPaint = new Paint();
-//        mPaint.setColor(Color.RED);
+
         mPaint.setAntiAlias(true);
         mPaint.setStrokeWidth(30);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
-
-//
 
 
         cPaint = new Paint(Paint.DITHER_FLAG);
@@ -141,7 +139,7 @@ public class DrawView extends View {
                 paths.put(id, path);
 
 
-                Log.d(String.valueOf(randColour.size()), String.valueOf(paths.size()));
+//                Log.d(String.valueOf(randColour.size()), String.valueOf(paths.size()));
                 break;
 
             case MotionEvent.ACTION_MOVE:

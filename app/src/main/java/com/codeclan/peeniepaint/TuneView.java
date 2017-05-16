@@ -13,6 +13,9 @@ import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 
 public class TuneView extends View {
 
@@ -28,8 +31,10 @@ public class TuneView extends View {
     private Paint mPaint;
 
     private int[] colours = {Color.BLUE, Color.GREEN, Color.MAGENTA,
-            Color.BLACK, Color.CYAN, Color.GRAY, Color.RED, Color.DKGRAY,
+            Color.CYAN, Color.RED, Color.WHITE,
             Color.LTGRAY, Color.YELLOW};
+
+    ArrayList randColour = new ArrayList<Integer>();
 
     private Paint textPaint;
 
@@ -80,18 +85,26 @@ public class TuneView extends View {
 
         for (int size = mActivePointers.size(), i = 0; i < size; i++) {
             PointF point = mActivePointers.valueAt(i);
+
             if (point != null)
-                mPaint.setColor(colours[i % 9]);
+                mPaint.setColor((int) randColour.get(i));
+//                mPaint.setColor(colours[i % 9]);
+
+//            if (randColour.get(i) != null) {
+//                mPaint.setColor((int) randColour.get(i));
+//            }
+
+
             canvas.drawCircle(point.x, point.y, SIZE, mPaint);
         }
         canvas.drawText("TEXT HERE " + mActivePointers.size(), 10, 40, textPaint);
     }
 
-
-    public void clearCanvas() {
-        mPath.reset();
-        invalidate();
-    }
+//
+//    public void clearCanvas() {
+//        mPath.reset();
+//        invalidate();
+//    }
 
 
 
@@ -107,6 +120,10 @@ public class TuneView extends View {
         switch (maskedAction) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_POINTER_DOWN: {
+
+                Random ran = new Random();
+                int x = ran.nextInt(colours.length);
+                randColour.add(colours[x]);
 
                 PointF f = new PointF();
                 f.x = event.getX(pointerIndex);
