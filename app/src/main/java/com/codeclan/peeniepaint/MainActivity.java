@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         mp = MediaPlayer.create(getApplicationContext(), R.raw.heartandsoul);
 
-//        mp.setLooping(true);
+        mp.setLooping(true);
         mp.start();
 
     }
@@ -39,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         mp.setLooping(false);
         mp.stop();
         mp.release();
+    }
+
+    protected void onPause() {
+        super.onPause();
+
+        if (mp != null && mp.isPlaying()) {
+            mp.stop();
+            mp.release();
+            mp = null;
+        }
     }
 
 
@@ -65,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
 
         mBackPressed = System.currentTimeMillis();
     }
+
+
 
 
 

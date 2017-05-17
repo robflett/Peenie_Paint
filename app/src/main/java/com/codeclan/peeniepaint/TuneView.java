@@ -36,6 +36,10 @@ public class TuneView extends View {
 
     ArrayList randColour = new ArrayList<Integer>();
 
+//    private int[] sounds = {R.raw.pianoa, R.raw.pianob, R.raw.pianoc, R.raw.pianoc, R.raw.pianod, R.raw.pianoe, R.raw.pianof, R.raw.pianog};
+//
+//    ArrayList randSound = new ArrayList<>();
+
     private Paint textPaint;
 
     private float mX, mY;
@@ -86,8 +90,9 @@ public class TuneView extends View {
         for (int size = mActivePointers.size(), i = 0; i < size; i++) {
             PointF point = mActivePointers.valueAt(i);
 
-            if (point != null)
+            if (point != null) {
                 mPaint.setColor((int) randColour.get(i));
+            }
 //                mPaint.setColor(colours[i % 9]);
 
 //            if (randColour.get(i) != null) {
