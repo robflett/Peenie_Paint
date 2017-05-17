@@ -110,9 +110,9 @@ public class TuneActivity extends AppCompatActivity {
             }
         });
 
-        mp = MediaPlayer.create(getApplicationContext(), R.raw.heartandsoul);
-
-        mp.start();
+//        mp = MediaPlayer.create(getApplicationContext(), R.raw.heartandsoul);
+//
+//        mp.start();
     }
 
     @Override
