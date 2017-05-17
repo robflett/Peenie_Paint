@@ -114,26 +114,27 @@ public class TuneActivity extends AppCompatActivity {
             }
         });
 
-        ObjectAnimator cloudAnim = ObjectAnimator.ofFloat(findViewById(R.id.imageView), "x", -350);
+        ObjectAnimator cloudAnim = ObjectAnimator.ofFloat(findViewById(R.id.imageView), "x", 800);
 
-        cloudAnim.setDuration(3000);
+        cloudAnim.setDuration(37000);
         cloudAnim.setRepeatCount(ValueAnimator.INFINITE);
         cloudAnim.setRepeatMode(ValueAnimator.REVERSE);
         cloudAnim.start();
 
 
-        ObjectAnimator cloudAnim2 = ObjectAnimator.ofFloat(findViewById(R.id.imageView2), "x", -300);
+        ObjectAnimator cloudAnim2 = ObjectAnimator.ofFloat(findViewById(R.id.imageView2), "x", 800);
 
-        cloudAnim2.setDuration(3000);
+        cloudAnim2.setDuration(42000);
         cloudAnim2.setRepeatCount(ValueAnimator.INFINITE);
         cloudAnim2.setRepeatMode(ValueAnimator.REVERSE);
         cloudAnim2.start();
 
-        ObjectAnimator rocketAnim = ObjectAnimator.ofFloat(findViewById(R.id.imageView3), "x", -200);
+        ObjectAnimator rocketAnim = ObjectAnimator.ofFloat(findViewById(R.id.imageView3), "x", 1500);
 
-        rocketAnim.setDuration(3000);
+        rocketAnim.setDuration(14000);
         rocketAnim.setRepeatCount(ValueAnimator.INFINITE);
-        rocketAnim.setRepeatMode(ValueAnimator.REVERSE);
+        rocketAnim.setRepeatMode(ValueAnimator.RESTART);
+//        rocketAnim.setRepeatMode(ValueAnimator.REVERSE);
         rocketAnim.start();
 
 //        mp = MediaPlayer.create(getApplicationContext(), R.raw.heartandsoul);

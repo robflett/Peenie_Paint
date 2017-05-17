@@ -110,22 +110,23 @@
         android:id="@+id/imageView2"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/cloud2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp" />
+        android:layout_marginEnd="66dp"
+        android:layout_marginRight="600dp"
+        android:adjustViewBounds="false"
+        app:srcCompat="@drawable/cloud2" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_height="120dp"
+        app:srcCompat="@drawable/rocket"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
-        app:srcCompat="@drawable/rocket" />
+        android:layout_marginRight="119dp"
+        android:layout_marginEnd="119dp"
+        android:layout_marginTop="32dp" />
 
 
 
