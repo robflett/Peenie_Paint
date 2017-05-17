@@ -15,62 +15,78 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="10dp">
-        
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:text="a"
             android:id="@+id/a"
-            android:layout_weight="1" />
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:text="b"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:text="a"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/b"
-            android:layout_weight="1" />
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:text="c"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:text="b"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/c"
-            android:layout_weight="1" />
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:text="d"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:text="c"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/d"
-            android:layout_weight="1" />
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:text="e"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:text="d"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/e"
-            android:layout_weight="1" />
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:text="f"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:text="e"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/f"
-            android:layout_weight="1" />
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:text="g"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:text="f"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/g"
-            android:layout_weight="1" />
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:text="h"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:text="g"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/h"
-            android:layout_weight="1" />
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:text="h"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

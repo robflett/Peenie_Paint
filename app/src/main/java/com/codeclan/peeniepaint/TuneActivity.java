@@ -21,6 +21,8 @@ public class TuneActivity extends AppCompatActivity {
 
     Button a, b, c, d, e, f, g, h;
 
+
+//    soundPool is a service that manages and plays audio files for applications - it uses mediaplayer but is distinct.
     private SoundPool soundPool;
 
     private int sound_a, sound_b, sound_c, sound_d, sound_e, sound_f, sound_g, sound_h;

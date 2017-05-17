@@ -1,39 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.codeclan.peeniepaint.MainActivity">
 
-    <Button
-        android:id="@+id/draw"
-        android:layout_width="wrap_content"
-        android:layout_height="144dp"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:onClick="onTuneButtonClicked"
-        android:text="Play Something!"
-        app:layout_anchor="@+id/include3"
-        app:layout_anchorGravity="center_vertical|center_horizontal" />
 
-    <Button
-        android:id="@+id/tune"
-        android:layout_width="120dp"
-        android:layout_height="107dp"
-        android:layout_gravity="top|center_horizontal"
-        android:onClick="onDrawButtonClicked"
-        android:text="Draw Something!"
-        app:layout_anchor="@+id/include3"
-        app:layout_anchorGravity="bottom|center_horizontal" />
-
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="30dp"
-        android:padding="30dp"
-        android:text="What would you like to do today?"
-        android:textSize="30dp" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="225dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp"
+            android:padding="30dp"
+            android:text="What would you like to do today?"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30dp" />
+
+
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/tune"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="23dp"
+        android:onClick="onDrawButtonClicked"
+        android:text="Draw Something!"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        app:backgroundTint="@color/colorAccent" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/draw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tune"
+        android:layout_alignBottom="@+id/tune"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:onClick="onTuneButtonClicked"
+        android:text="Play Something!"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        app:backgroundTint="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignEnd="@+id/tune"
+        android:layout_alignLeft="@+id/draw"
+        android:layout_alignRight="@+id/tune"
+        android:layout_alignStart="@+id/draw"
+        android:layout_below="@+id/draw"
+        android:layout_marginTop="80dp"
+        android:fontFamily="monospace"
+        android:text="peenie paint!"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="?android:attr/colorControlActivated"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
