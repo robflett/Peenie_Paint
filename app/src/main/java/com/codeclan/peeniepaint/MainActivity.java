@@ -36,9 +36,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mp.setLooping(false);
-        mp.stop();
-        mp.release();
+        if (mp != null && mp.isPlaying()) {
+            mp.stop();
+            mp.release();
+            mp = null;
+        }
     }
 
     protected void onPause() {
