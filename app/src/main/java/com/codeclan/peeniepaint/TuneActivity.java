@@ -114,24 +114,24 @@ public class TuneActivity extends AppCompatActivity {
             }
         });
 
-        ObjectAnimator cloudAnim = ObjectAnimator.ofFloat(findViewById(R.id.imageView), "x", 800);
-
-        cloudAnim.setDuration(37000);
-        cloudAnim.setRepeatCount(ValueAnimator.INFINITE);
-        cloudAnim.setRepeatMode(ValueAnimator.REVERSE);
-        cloudAnim.start();
+//        ObjectAnimator cloudAnim = ObjectAnimator.ofFloat(findViewById(R.id.imageView), "x", 700);
+//
+//        cloudAnim.setDuration(37000);
+//        cloudAnim.setRepeatCount(ValueAnimator.INFINITE);
+//        cloudAnim.setRepeatMode(ValueAnimator.REVERSE);
+//        cloudAnim.start();
 
 
         ObjectAnimator cloudAnim2 = ObjectAnimator.ofFloat(findViewById(R.id.imageView2), "x", 800);
 
-        cloudAnim2.setDuration(42000);
+        cloudAnim2.setDuration(52000);
         cloudAnim2.setRepeatCount(ValueAnimator.INFINITE);
         cloudAnim2.setRepeatMode(ValueAnimator.REVERSE);
         cloudAnim2.start();
 
-        ObjectAnimator rocketAnim = ObjectAnimator.ofFloat(findViewById(R.id.imageView3), "x", 1500);
+        ObjectAnimator rocketAnim = ObjectAnimator.ofFloat(findViewById(R.id.imageView3), "x", 2000);
 
-        rocketAnim.setDuration(14000);
+        rocketAnim.setDuration(24000);
         rocketAnim.setRepeatCount(ValueAnimator.INFINITE);
         rocketAnim.setRepeatMode(ValueAnimator.RESTART);
 //        rocketAnim.setRepeatMode(ValueAnimator.REVERSE);

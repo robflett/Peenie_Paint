@@ -92,31 +92,28 @@
     </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:adjustViewBounds="false"
-        android:cropToPadding="false"
-        app:srcCompat="@drawable/cloud1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="31dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="89dp" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginRight="100dp"
+        android:adjustViewBounds="false"
+        app:srcCompat="@drawable/cloud2" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/imageView"
-        android:layout_marginEnd="66dp"
-        android:layout_marginRight="600dp"
-        android:adjustViewBounds="false"
-        app:srcCompat="@drawable/cloud2" />
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/moon" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -127,6 +124,20 @@
         android:layout_marginRight="119dp"
         android:layout_marginEnd="119dp"
         android:layout_marginTop="32dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        app:srcCompat="@drawable/cloud1"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_alignRight="@+id/imageView3"
+        android:layout_alignEnd="@+id/imageView3" />
+
+
 
 
 
