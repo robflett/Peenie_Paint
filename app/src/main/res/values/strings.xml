@@ -2,4 +2,6 @@
     <string name="app_name">Peenie Paint</string>
     <string name="title_activity_draw">DrawActivity</string>
     <string name="title_activity_tune">TuneActivity</string>
+    <string name="cloud">A Cloud</string>
+    <string name="rocket">A Rocket</string>
 </resources>

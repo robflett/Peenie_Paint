@@ -1,6 +1,8 @@
 package com.codeclan.peeniepaint;
 
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
@@ -111,6 +113,28 @@ public class TuneActivity extends AppCompatActivity {
                 soundPool.play(sound_h, 1, 1, 0, 0, 1);
             }
         });
+
+        ObjectAnimator cloudAnim = ObjectAnimator.ofFloat(findViewById(R.id.imageView), "x", -350);
+
+        cloudAnim.setDuration(3000);
+        cloudAnim.setRepeatCount(ValueAnimator.INFINITE);
+        cloudAnim.setRepeatMode(ValueAnimator.REVERSE);
+        cloudAnim.start();
+
+
+        ObjectAnimator cloudAnim2 = ObjectAnimator.ofFloat(findViewById(R.id.imageView2), "x", -300);
+
+        cloudAnim2.setDuration(3000);
+        cloudAnim2.setRepeatCount(ValueAnimator.INFINITE);
+        cloudAnim2.setRepeatMode(ValueAnimator.REVERSE);
+        cloudAnim2.start();
+
+        ObjectAnimator rocketAnim = ObjectAnimator.ofFloat(findViewById(R.id.imageView3), "x", -200);
+
+        rocketAnim.setDuration(3000);
+        rocketAnim.setRepeatCount(ValueAnimator.INFINITE);
+        rocketAnim.setRepeatMode(ValueAnimator.REVERSE);
+        rocketAnim.start();
 
 //        mp = MediaPlayer.create(getApplicationContext(), R.raw.heartandsoul);
 //
